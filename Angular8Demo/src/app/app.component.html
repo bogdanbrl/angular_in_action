@@ -1,0 +1,542 @@
+<head>
+	<style>
+		.container {
+			text-align: center;
+			color: greenyellow;
+		}
+
+		#password {
+			color: green;
+		}
+
+		#selectTag {
+			color: green;
+		}
+
+		#my-element>div {
+			color: blueviolet;
+		}
+	</style>
+</head>
+
+<h1>{{ title }}</h1>
+<h2>{{title2}}</h2>
+
+<h1>Demonstration of Nested Component in Angular</h1>
+<h3>It is a Parent Component</h3>
+<child></child>
+
+<span class="setup">Given Number</span>
+<h1 class="punchline">No number here</h1>
+
+<br /><br /><br /><br />
+<h1>Demo 1: Interpolation</h1>
+<br /><br />
+<div>
+	<span>Current Number is {{value1}}</span>
+	<br /><br />
+	<span>Current Number is {{value1 | currency}}</span>
+	<br /><br />
+	<span>Current Number is {{dt1}}</span>
+	<br /><br />
+	<span>Current Number is {{dt1 | date}}</span>
+	<br /><br />
+	<span>Status is {{status}}</span>
+	<br /><br />
+	<span>{{status? "This is correct status" : "This is false status"}}</span>
+	<br /><br />
+	<span>{{returnString()}}</span>
+	<br /><br /><br /><br />
+</div>
+
+<br /><br /><br /><br />
+<h1>Demo 2: Property-Based Binding</h1>
+<br /><br />
+<div>
+	<span>Current Number is {{value1}}</span>
+	<br /><br />
+	Display Value in Input Controls : <input [value]="value1" />
+	<br /><br />
+	<span>Current Number is: {{value1 | currency}}</span>
+	<br /><br />
+	<span>Current Number is: {{dt1}}</span>
+	<br /><br />
+	<span>Current Number is: {{dt1 | date}}</span>
+	<br /><br />
+	<span>Status is: {{status}}</span>
+	<br /><br />
+	<span>{{status? "This is corrrect status" : "This is false status"}}</span>
+	<br /><br />
+	<span>{{returnString()}}</span>
+</div>
+
+<br /><br /><br /><br />
+<h1>Demo 3: Event-Based Binding</h1>
+<br /><br />
+<div>
+	<h2>Demo of Event Binding in Angular 8</h2>
+	<input type="button" value="Click" class="btn-block" (click)="showAlert()" />
+	<br /><br />
+	<input type="button" value="Mouse Enter" class="btn-block" (mouseenter)="showAlert()" />
+	<br /><br /><br /><br />
+</div>
+
+<br /><br /><br /><br />
+<h1>Demo 4: Two Way Data Binding</h1>
+<br /><br />
+<div>
+	<div>
+		<span>Enter your name</span>
+		<input [(ngModel)]="val" type="text" />
+	</div>
+	<div>
+		<span>Your name is:- </span>
+		<span>{{val}}</span>
+	</div>
+</div>
+
+<br /><br /><br /><br />
+<h1>Demo 5: Pass Input Value into Component</h1>
+<br /><br />
+<div>
+	<message-info [message]="'Demonstration of Input Property of a Component'" [alert-pop]="val2"></message-info>
+</div>
+
+<br /><br /><br /><br />
+<h1>Demo 6: Return Output Value from a Component</h1>
+<br /><br />
+<div>
+	<message-info [message]="'Demonstration of Input Property of a Component'" [alert-pop]="val2"
+		(onSignUp)="onSignup($event)"></message-info>
+</div>
+
+
+<!-- <div>
+	<br/><br/><br/><br/>
+	<b>Acesta este un &lt;b&gt; text</b><br/>
+	<strong>Acesta este un &lt;strong&gt; text</strong><br/>
+	<i>Acesta este un &lt;i&gt; text</i><br/>
+	<em>Acesta este un &lt;em&gt; text</em><br/>
+	<mark>Acesta este un &lt;mark&gt; text</mark><br/>
+	<small>Acesta este un &lt;small&gt; text</small><br/>
+	<sub>Acesta este un &lt;sub&gt; text</sub><br/>
+	<sup>Acesta este un &lt;sup&gt; text</sup><br/>
+	<br/><br/><br/><br/>
+</div>
+
+<div>
+	<h2>Unordered list</h2>
+	<ul>
+		<li>This is the rat,</li>
+		<li>This is the malt,</li>
+		<li>That lay in the house that Jack built.</li>
+	</ul>
+	<br/><br/><br/><br/>
+
+	<h2>Ordered list</h2>
+	<ol>
+		<li>This is the rat,</li>
+		<li>This is the malt,</li>
+		<li>That lay in the house that Jack built.</li>
+	</ol>
+	<br/><br/><br/><br/>
+</div>
+
+<div id="my-element">
+	<table>
+		<thead>
+			<tr>
+				<th>Head table 1</th>
+				<th>Head table 2</th>
+				<th>Head table 3</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>row 1 col 1</td>
+				<td>row 1 col 2</td>
+				<td>row 1 col 3</td>
+			</tr>
+			<tr>
+				<td>row 2 col 1</td>
+				<td>row 2 col 2</td>
+				<td>row 2 col 3</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<br/><br/><br/><br/>
+<article>Acesta este un &lt;article&gt; text</article>
+<header>Acesta este un &lt;header&gt; text</header>
+<footer>Acesta este un &lt;footer&gt; text</footer>
+<section>Acesta este un &lt;section&gt; text</section>
+<nav>Acesta este un &lt;nav&gt; text</nav>
+<canvas>Acesta este un &lt;canvas&gt; text</canvas>
+<svg>Acesta este un &lt;svg&gt; text</svg>
+<audio>Acesta este un &lt;audio&gt; text</audio>
+<video>Acesta este un &lt;video&gt; text</video>
+<br/><br/><br/><br/>
+
+<h2>Basic form example</h2>
+<form action="/action_page.php">
+	<div class="container">
+		<h1>Register</h1>
+		<p>Please fill in this form to create an account.</p>
+		<hr>
+
+		<label for="email"><b>Email </b></label>
+		<input type="email" placeholder="Enter email" id="email" required><br/><br/>
+
+		<label for="password"><b>Password </b></label>
+		<input type="password" placeholder="Enter password" id="password" required><br/><br/>
+
+		<label for="password-repeat"><b>Repeat password </b></label>
+		<input type="password" placeholder="Retype password" id="password-repeat" required><br/><br/>
+
+		<button type="submit" class="register-button">Register</button>
+	</div>
+</form>
+
+<br/><br/><br/><br/>
+<h2 id="selectTag">Select tag - dropdown field</h2>
+<select>
+	<option value="merceder">Mercedes</option>
+	<option value="audi">Audi</option>
+	<option value="porche">Porche</option>
+	<option value="volvo">Volvo</option>
+	<option value="honda">Honda</option>
+</select>
+
+<br/><br/><br/><br/>
+<h2>TextArea tag - text area field</h2>
+<textarea rows="5" cols="50"></textarea> -->
+
+
+<div>
+	<h2>My first web page</h2>
+	<p>My first paragraph</p>
+
+	<p id="demo">My first paragraph</p>
+	<script>
+		var element = document.getElementById("demo");
+		element.innerHTML = "<h2>Hello</h2>";
+		element.style = "color: red; transform: rotate(180deg);";
+
+	</script>
+
+	<p onclick="clickMe()" id="demo">Click!</p>
+	<!-- functia clickMe()este declarata in fisierul index.html -->
+
+</div>
+
+<br /><br /><br /><br /><br />
+
+<div>
+	<h3>This is a Attribute Directives</h3>
+	<span [class.red]="true">Attribute change</span><br />
+	<span [ngClass]="{'blue':true}">Attribute Change by Using NgCass</span><br />
+	<span [ngStyle]="{'font-size':'14px', 'color':'green'}">Attribute Change by Using NgStyle</span><br /><br />
+	<span [class.cyan]="showColor">Attribute change</span><br />
+	<span [ngClass]="{'brown':showColor}">Attribute Change by Using NgClass</span><br />
+	<input type="button" value="Change Color" (click)="changeColor()" /><br /><br />
+	<span [class.cyan]="showColor">Attribute Change</span><br />
+	<span [ngClass]="{'cyan':showColor, 'red': !showColor}">Attribute Change by Using NgClass</span><br /><br />
+
+</div>
+<br /><br /><br /><br />
+
+
+<div>
+	<input type="button" value="{{caption}}" (click)="changeData()" />
+	<br />
+	<h2 *ngIf="showInfo"><span>Demonstrate of Structural Directives - *ngIf</span></h2>
+</div>
+
+<br /><br /><br />
+<div>
+	<h2>Demonstrate ngFor</h2>
+	<ul>
+		<li *ngFor="let item of productList">
+			{{item}}
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- ngSwitch in angular app -->
+<div>
+	<h2>Demonstrate ngSwitch</h2>
+	<table style="width:100%;border:solid;border-color:blue;border-width:thin;">
+		<thead>
+			<tr>
+				<td>Srl No</td>
+				<td>Student Name</td>
+				<td>Course</td>
+				<td>Grade</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let student of studentList;" [ngSwitch]="student.Grade">
+				<td>
+					<span *ngSwitchCase="'A'" [ngStyle]="{'font-size':'18px','color':'red'}">{{student.SrlNo}}</span>
+					<span *ngSwitchCase="'B'" [ngStyle]="{'font-size':'16px','color':'blue'}">{{student.SrlNo}}</span>
+					<span *ngSwitchCase="'C'" [ngStyle]="{'font-size':'14px','color':'green'}">{{student.SrlNo}}</span>
+					<span *ngSwitchDefault [ngStyle]="{'font-size':'12px','color':'black'}">{{student.SrlNo}}</span>
+				</td>
+				<td>
+					<span *ngSwitchCase="'A'" [ngStyle]="{'font-size':'18px','color':'red'}">{{student.Name}}</span>
+					<span *ngSwitchCase="'B'" [ngStyle]="{'font-size':'16px','color':'blue'}">{{student.Name}}</span>
+					<span *ngSwitchCase="'C'" [ngStyle]="{'font-size':'14px','color':'green'}">{{student.Name}}</span>
+					<span *ngSwitchDefault [ngStyle]="{'font-size':'12px','color':'black'}">{{student.Name}}</span>
+				</td>
+				<td>
+					<span *ngSwitchCase="'A'" [ngStyle]="{'font-size':'18px','color':'red'}">{{student.Course}}</span>
+					<span *ngSwitchCase="'B'" [ngStyle]="{'font-size':'16px','color':'blue'}">{{student.Course}}</span>
+					<span *ngSwitchCase="'C'" [ngStyle]="{'font-size':'14px','color':'green'}">{{student.Course}}</span>
+					<span *ngSwitchDefault [ngStyle]="{'font-size':'12px','color':'black'}">{{student.Course}}</span>
+				</td>
+				<td>
+					<span *ngSwitchCase="'A'" [ngStyle]="{'font-size':'18px','color':'red'}">{{student.Grade}}</span>
+					<span *ngSwitchCase="'B'" [ngStyle]="{'font-size':'16px','color':'blue'}">{{student.Grade}}</span>
+					<span *ngSwitchCase="'C'" [ngStyle]="{'font-size':'14px','color':'green'}">{{student.Grade}}</span>
+					<span *ngSwitchDefault [ngStyle]="{'font-size':'12px','color':'black'}">{{student.Grade}}</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<br /><br /><br /><br />
+<div>
+	<input type="radio" name="colors" (click)="color='blue'">blue
+	<input type="radio" name="colors" (click)="color='orange'">orange
+	<input type="radio" name="colors" (click)="color='green'">green
+</div>
+<h1 [colorchange]="color">{{message}}</h1>
+
+
+<!-- Basic Pipes Demo
+In this example, we will demonstrate how to use the inbuilt pipes in Angular 8. -->
+
+<br /><br />
+<br />
+<br />
+<h1>Basic Pipes Demo</h1>
+<div>
+	<h1>Demonstrate of Pipe in Angular 8</h1>
+	<h2>Date Pipes</h2>
+	Full Date : {{todayDate}}<br />
+	Short Date : {{todayDate | date:'shortDate'}}<br />
+	Medium Date : {{todayDate | date:'mediumDate'}}<br />
+	Full Date : {{todayDate | date:'fullDate'}}<br />
+	Time : {{todayDate | date:'HH:MM'}}<br />
+	Time : {{todayDate | date:'hh:mm:ss a'}}<br />
+	Time : {{todayDate | date:'hh:mm:ss p'}}<br />
+
+	<h2>Number Pipes</h2>
+	No Formatting : {{amount}}<br />
+	2 Decimal Place : {{amount |number:'2.2-2'}}
+
+	<h2>Currency Pipes</h2>
+	No Formatting : {{amount}}<br />
+	USD Doller($) : {{amount |currency:'USD':true}}<br />
+	USD Doller : {{amount |currency:'USD':false}}<br />
+	INR() : {{amount |currency:'INR':true}}<br />
+	INR : {{amount |currency:'INR':false}}<br />
+
+	<h2>String Related Pipes</h2>
+	Actual Message : {{message}}<br />
+	Lower Case : {{message | lowercase}}<br />
+	Upper Case : {{message | uppercase}}<br />
+
+	<h2> Percentage Pipes</h2>
+	2 Place Formatting : {{amount | percent :'.2'}}<br /><br />
+</div>
+
+
+<h1>Custom Pipe - Proper Case</h1>
+<!-- crete pipte file, modify AppModule, AppComponent and AppHtml -->
+<div>  
+    <div class="form-horizontal">  
+        <h2 class="aligncenter">Custom Pipes - Proper Case</h2><br />  
+        <div class="row">  
+            <div class="col-xs-12 col-sm-2 col-md-2">  
+                <span>Enter Text</span>  
+            </div>  
+            <div class="col-xs-12 col-sm-4 col-md-4">  
+                <input type="text" id="txtFName" placeholder="Enter Text" [(ngModel)]="message3" />  
+            </div>  
+        </div>  
+        <div class="row">  
+            <div class="col-xs-12 col-sm-2 col-md-2">  
+                <span>Result in Proper Case</span>  
+            </div>  
+            <div class="col-xs-12 col-sm-4 col-md-4">  
+                <span>{{message3 | propercase}}</span>  
+            </div>  
+        </div>  
+    </div>  
+</div> 
+
+<br/><br/><br/><br/>
+<h1>Now, in this demo, we will discuss how to use ViewChild decorator within a component. 
+	For that purpose, first, need to create a child component that will be used as a ViewChild 
+	in the parent or root component. -- child2 --</h1>
+<h2>Demo of Viewchild</h2>
+<div>
+	<child2 (addNumber)="add($event)" (subtractNumber)="substract($event)" (multiplyNumber)="multiply($event)"  
+            (divideNumber)="divide($event)" #calculator></child2>
+</div>
+<h3>Result</h3>  
+<span>{{ result }}</span>  
+<br />  
+<br />  
+<input type="button" value="Reset" (click)="reset()" /> 
+
+<br/><br/><br/><br/>
+<h2>Demonstration of View Encapsulation</h2>
+<div>
+	<h1>{{ message4 }}</h1>
+</div>
+<child3></child3>
+
+<br/><br/><br/><br/>
+<div>  
+    <h2>Demonstrate Modal Window using ngContent</h2>  
+    <input type="button" value="Show Modal" class="btn-group" (click)="fnOpenModal()" />  
+    <br />  
+    <modal-window [header-caption]="caption" #modal>  
+        <content-body>  
+            <h1>Modal Contain Defined at Parent Component</h1>  
+            <p>  
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque natus minima suscipit magnam, quas provident aperiam? Quam maiores saepe placeat soluta, vel qui dolorem dolorum dignissimos veniam iusto facilis totam?  
+            </p>  
+        </content-body>  
+        <content-footer>  
+            <input type="button" class="btn-default active" class="btn btn-primary" value="Modal Close" (click)="fnHideModal();" />   
+        </content-footer>  
+    </modal-window>  
+</div> 
+
+
+
+<!-- template driven form -->
+<br/><br/><br/><br/>
+<h2>Template Driven Form</h2>
+<div>
+	<form #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">  
+        <table style="width:60%;" cellpadding="5" cellspacing="5">  
+            <tr>  
+                <td style="width :40%;">  
+                    <label for="username">User Name</label>  
+                </td>  
+                <td style="width :60%;">  
+                    <input type="text" name="username" id="username" [(ngModel)]="username" required>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td style="width :40%;">  
+                    <label for="email">Email</label>  
+                </td>  
+                <td style="width :60%;">  
+                    <input type="text" name="email" id="email" [(ngModel)]="email" required>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td style="width :40%;">  
+                    <label for="password">Password</label>  
+                </td>  
+                <td style="width :60%;">  
+                    <input type="password" name="password" id="password" [(ngModel)]="password" required>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td style="width :40%;"></td>  
+                <td style="width :60%;">  
+                    <button type="submit">Sign Up</button>  
+                </td>  
+            </tr>  
+        </table>  
+	</form> 
+	<div *ngIf="showMessage">
+		<h3>Thank You {{ formData.username }} for registration</h3>
+	</div>
+</div>
+<br/><br/><br/><br/>
+
+<!-- model-driven form -->
+<!-- <h2>Reactive Form Module</h2>  
+<div>  
+    <form [formGroup]="loginFormModelDriven" (ngSubmit)="registerUserModelDriven()">  
+        <table style="width:60%;" cellpadding="5" cellspacing="5">  
+            <tr>  
+                <td style="width :40%;">  
+                    <label for="usernameModelDriven">User Name</label>  
+                </td>  
+                <td style="width :60%;">  
+                    <input type="text" name="usernameModelDriven" id="usernameModelDriven" [formControl]="usernameModelDriven">  
+                    <div [hidden]="username.valid || username.untouched" class="error">  
+                        <div [hidden]="!usernameModelDriven.hasError('minlength')">  
+                            Username can not be shorter than 5 characters.  
+                        </div>  
+                        <div [hidden]="!usernameModelDriven.hasError('required')">  
+                            Username is required.  
+                        </div>  
+                    </div>  
+                </td>  
+            </tr>             
+            <tr>  
+                <td style="width :40%;">  
+                    <label for="passwordModelDriven">Password</label>  
+                </td>  
+                <td style="width :60%;">  
+                    <input type="passwordModelDriven" name="passwordModelDriven" id="passwordModelDriven" [formControl]="passwordModelDriven">  
+                    <div [hidden]="passwordModelDriven.valid || passwordModelDriven.untouched" class="error">  
+                        <div [hidden]="!passwordModelDriven.hasError('required')">  
+                            The password is required.  
+                        </div>  
+                        <div [hidden]="!passwordModelDriven.hasError('needsExclamation')">  
+                            Your password must have an exclamation mark!  
+                        </div>  
+                    </div>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td style="width :40%;"></td>  
+                <td style="width :60%;">  
+                    <button type="submit" [disabled]="!loginFormModelDriven.valid">Log In</button>  
+                </td>  
+            </tr>  
+        </table>  
+    </form>  
+    <div *ngIf="showMessage">  
+        <h3>Thanks You {{usernameModelDriven.username}} for registration</h3>  
+    </div>  
+</div> 
+<br/><br/><br/><br/> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

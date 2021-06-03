@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <title>Salut Bogdan</title>
+</header>
+
+<body>
+  <h2>Template Driven Form</h2>
+  <div>
+    <form #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
+      <table style="width:60%;" cellpadding="5" cellspacing="5">
+        <tr>
+          <td style="width :40%;">
+            <label for="username">User Name</label>
+          </td>
+          <td style="width :60%;">
+            <input type="text" name="username" id="username" [(ngModel)]="username" required>
+          </td>
+        </tr>
+        <tr>
+          <td style="width :40%;">
+            <label for="email">Email</label>
+          </td>
+          <td style="width :60%;">
+            <input type="text" name="email" id="email" [(ngModel)]="email" required>
+          </td>
+        </tr>
+        <tr>
+          <td style="width :40%;">
+            <label for="password">Password</label>
+          </td>
+          <td style="width :60%;">
+            <input type="password" name="password" id="password" [(ngModel)]="password" required>
+          </td>
+        </tr>
+        <tr>
+          <td style="width :40%;"></td>
+          <td style="width :60%;">
+            <button type="submit">Sign Up</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div *ngIf="showMessage">
+      <h3>Thanks You {{formData.username}} for registration</h3>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br />
+
+  <!-- Model-Driven Form -->
+  <h2>Reactive Form Module</h2>
+  <div>
+    <form [formGroup]="loginForm2" (ngSubmit)="registerUser2()">
+      <table style="width:60%;" cellpadding="5" cellspacing="5">
+        <tr>
+          <td style="width :40%;">
+            <label for="username2">User Name</label>
+          </td>
+          <td style="width :60%;">
+            <input type="text" name="username2" id="username2" [formControl]="username2">
+            <div [hidden]="username2.valid || username2.untouched" class="error">
+              <div [hidden]="!username2.hasError('minlength')">
+                <h6>Username can not be shorter than 5 characters.</h6>
+              </div>
+              <div [hidden]="!username2.hasError('required')">
+                <h6>Username is required.</h6>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width :40%;">
+            <label for="password2">Password</label>
+          </td>
+          <td style="width :60%;">
+            <input type="password2" name="password2" id="password2" [formControl]="password2">
+            <div [hidden]="password2.valid || password2.untouched" class="error">
+              <div [hidden]="!password2.hasError('required')">
+                <h6>The password is required.</h6>
+              </div>
+              <div [hidden]="!password2.hasError('needsExclamation')">
+                <h6>Your password must have an exclamation mark!</h6>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="width :40%;"></td>
+          <td style="width :60%;">
+            <button type="submit" [disabled]="!loginForm2.valid">Log In</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div *ngIf="showMessage2">
+      <h3>Thanks You {{ formData2.username2 }} for registration</h3>
+    </div>
+  </div>
+
+
+
+
+
+</body>
+
+<br /><br /><br /><br /><br />
+<footer>
+  Love Angular?&nbsp;
+</footer>
+
+</html>
+
